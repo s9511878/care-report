@@ -10,21 +10,22 @@
   <meta http-equiv="Expires" content="0">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
       --primary: #1e3a8a;
-      --primary-light: #3b82f6;
+      --primary-light: #2563eb;
       --accent: #dc2626;
+      --accent-dark: #991b1b;
       --accent-bg: #fef2f2;
-      --warning: #d97706;
+      --warning: #b45309;
       --warning-bg: #fffbeb;
-      --bg: #f8fafc;
+      --bg: #f1f5f9;
       --card-bg: #ffffff;
       --text-main: #0f172a;
-      --text-muted: #475569;
-      --border: #e2e8f0;
-      --radius: 10px;
+      --text-muted: #334155;
+      --border: #cbd5e1;
+      --radius: 12px;
     }
 
     * {
@@ -37,147 +38,166 @@
       font-family: 'Noto Sans TC', 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       background-color: var(--bg);
       color: var(--text-main);
-      line-height: 1.75;
-      padding: 24px 16px 80px;
+      line-height: 1.85;
+      padding: 16px 12px 100px;
+      font-size: 18px; /* 長者友善基礎大字體 */
+      -webkit-text-size-adjust: 100%;
     }
 
     .container {
-      max-width: 900px;
+      max-width: 920px;
       margin: 0 auto;
     }
 
-    /* 頂部 Header */
-    .header-card {
-      background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
-      color: #ffffff;
-      padding: 28px 24px;
-      border-radius: var(--radius);
-      box-shadow: 0 10px 25px -5px rgba(30, 58, 138, 0.25);
-      margin-bottom: 24px;
-    }
-
-    .badge-top {
-      display: inline-block;
-      background: rgba(255, 255, 255, 0.2);
-      backdrop-filter: blur(4px);
-      padding: 4px 12px;
-      border-radius: 9999px;
-      font-size: 0.88rem;
-      font-weight: 500;
-      margin-bottom: 12px;
-      letter-spacing: 0.5px;
-    }
-
-    .header-title {
-      font-size: 1.65rem;
-      font-weight: 700;
-      line-height: 1.35;
-      margin-bottom: 12px;
-    }
-
-    .header-subtitle {
-      font-size: 1.15rem;
-      font-weight: 400;
-      opacity: 0.95;
-      margin-top: 4px;
-      display: block;
-    }
-
-    .header-meta {
-      font-size: 0.95rem;
-      opacity: 0.95;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 16px;
-      margin-top: 8px;
-    }
-
-    /* 快捷功能列 */
-    .action-bar {
-      display: flex;
+    /* 頂端功能列 (最優先顯示) */
+    .top-action-bar {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
       gap: 12px;
-      margin-bottom: 24px;
-      flex-wrap: wrap;
+      margin-bottom: 18px;
     }
 
     .btn {
       display: inline-flex;
       align-items: center;
-      gap: 6px;
-      padding: 10px 18px;
-      border-radius: 8px;
-      font-size: 0.95rem;
-      font-weight: 600;
+      justify-content: center;
+      gap: 8px;
+      padding: 14px 18px;
+      border-radius: 10px;
+      font-size: 1.15rem; /* 大按鈕字體 */
+      font-weight: 700;
       text-decoration: none;
-      border: 1px solid transparent;
+      border: none;
       cursor: pointer;
-      transition: all 0.2s;
+      transition: all 0.2s ease;
+      text-align: center;
     }
 
-    .btn-print {
-      background: #ffffff;
-      color: var(--primary);
-      border-color: var(--border);
-    }
-    .btn-print:hover {
-      background: #f1f5f9;
-    }
-
-    .btn-urgent {
-      background: var(--accent);
+    /* 存為 PDF 按鈕改為深藍色，鮮明高對比 */
+    .btn-pdf {
+      background: #1e40af;
       color: #ffffff;
+      box-shadow: 0 4px 10px rgba(30, 64, 175, 0.35);
     }
-    .btn-urgent:hover {
-      background: #b91c1c;
+    .btn-pdf:hover, .btn-pdf:active {
+      background: #1d4ed8;
+      transform: translateY(-1px);
     }
 
-    /* 通用卡片容器 */
+    /* 待社工介入事項按鈕 (醒目警示紅) */
+    .btn-urgent {
+      background: #b91c1c;
+      color: #ffffff;
+      box-shadow: 0 4px 10px rgba(185, 28, 28, 0.35);
+    }
+    .btn-urgent:hover, .btn-urgent:active {
+      background: #991b1b;
+      transform: translateY(-1px);
+    }
+
+    /* 頂部 Header 卡片 */
+    .header-card {
+      background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
+      color: #ffffff;
+      padding: 26px 20px;
+      border-radius: var(--radius);
+      box-shadow: 0 10px 25px -5px rgba(30, 58, 138, 0.25);
+      margin-bottom: 20px;
+    }
+
+    .badge-top {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.25);
+      backdrop-filter: blur(4px);
+      padding: 6px 14px;
+      border-radius: 9999px;
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+      letter-spacing: 0.5px;
+    }
+
+    .header-title {
+      font-size: 1.85rem; /* 大標題 */
+      font-weight: 900;
+      line-height: 1.4;
+      margin-bottom: 12px;
+    }
+
+    .header-subtitle {
+      font-size: 1.25rem;
+      font-weight: 500;
+      opacity: 0.95;
+      margin-top: 8px;
+      display: block;
+      line-height: 1.5;
+    }
+
+    .header-meta {
+      font-size: 1.05rem;
+      opacity: 0.98;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-top: 14px;
+      background: rgba(0, 0, 0, 0.15);
+      padding: 12px 14px;
+      border-radius: 8px;
+    }
+
+    /* 通用區塊卡片 */
     .section-card {
       background: var(--card-bg);
       border: 1px solid var(--border);
       border-radius: var(--radius);
-      padding: 24px;
-      margin-bottom: 24px;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+      padding: 22px 18px;
+      margin-bottom: 22px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
     }
 
     .section-title {
-      font-size: 1.25rem;
-      font-weight: 700;
+      font-size: 1.45rem; /* 放大區塊標題 */
+      font-weight: 900;
       color: var(--primary);
-      margin-bottom: 16px;
+      margin-bottom: 18px;
       display: flex;
       align-items: center;
       gap: 8px;
-      border-bottom: 2px solid #eff6ff;
-      padding-bottom: 8px;
+      border-bottom: 2px solid #dbeafe;
+      padding-bottom: 10px;
     }
 
-    /* 重點提報 Alert */
+    /* 醒目提示盒 Alert */
     .alert-box {
-      padding: 18px 20px;
-      border-radius: 8px;
+      padding: 18px 18px;
+      border-radius: 10px;
       margin-bottom: 16px;
-      font-size: 0.98rem;
-      line-height: 1.8;
+      font-size: 1.12rem;
+      line-height: 1.85;
     }
 
     .alert-urgent {
       background-color: var(--accent-bg);
-      border-left: 4px solid var(--accent);
+      border-left: 6px solid var(--accent);
       color: #991b1b;
     }
 
     .alert-warning {
       background-color: var(--warning-bg);
-      border-left: 4px solid var(--warning);
+      border-left: 6px solid var(--warning);
       color: #92400e;
     }
 
+    .alert-info {
+      background-color: #f0fdf4;
+      border-left: 6px solid #16a34a;
+      color: #14532d;
+    }
+
     .alert-title {
-      font-weight: 700;
+      font-weight: 900;
       margin-bottom: 8px;
-      font-size: 1.1rem;
+      font-size: 1.25rem;
       display: flex;
       align-items: center;
       gap: 6px;
@@ -186,65 +206,69 @@
     /* 人物現況 Grid */
     .people-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: 1fr;
       gap: 16px;
-      margin-bottom: 12px;
     }
 
     .person-card {
-      border: 1px solid var(--border);
-      border-radius: 8px;
+      border: 2px solid var(--border);
+      border-radius: 10px;
       padding: 18px;
-      background: #fdfdfd;
+      background: #ffffff;
     }
 
     .person-card.active-case {
-      border-color: #bfdbfe;
-      background: #f0f7ff;
+      border-color: #93c5fd;
+      background: #f8fafc;
     }
 
     .person-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 10px;
+      margin-bottom: 12px;
     }
 
     .person-name {
-      font-size: 1.25rem;
-      font-weight: 700;
+      font-size: 1.55rem; /* 名字放大便於識別 */
+      font-weight: 900;
       color: var(--primary);
     }
 
     .person-tag {
-      font-size: 0.85rem;
-      padding: 3px 10px;
-      border-radius: 4px;
-      font-weight: 600;
+      font-size: 0.95rem;
+      padding: 4px 12px;
+      border-radius: 6px;
+      font-weight: 700;
     }
     .tag-icu { background: #fee2e2; color: #b91c1c; }
     .tag-ward { background: #fef3c7; color: #b45309; }
 
+    .person-body p {
+      font-size: 1.12rem;
+      margin-bottom: 8px;
+    }
+
     /* 時間軸 (Timeline) */
     .timeline {
       position: relative;
-      padding-left: 28px;
-      margin: 20px 0;
+      padding-left: 24px;
+      margin: 16px 0;
     }
 
     .timeline::before {
       content: '';
       position: absolute;
-      left: 10px;
-      top: 6px;
-      bottom: 6px;
-      width: 2px;
-      background: #cbd5e1;
+      left: 7px;
+      top: 8px;
+      bottom: 8px;
+      width: 3px;
+      background: #94a3b8;
     }
 
     .timeline-item {
       position: relative;
-      margin-bottom: 24px;
+      margin-bottom: 26px;
     }
 
     .timeline-item:last-child {
@@ -253,13 +277,13 @@
 
     .timeline-dot {
       position: absolute;
-      left: -28px;
-      top: 5px;
-      width: 14px;
-      height: 14px;
+      left: -24px;
+      top: 6px;
+      width: 16px;
+      height: 16px;
       border-radius: 50%;
       background: #ffffff;
-      border: 3px solid var(--primary-light);
+      border: 4px solid var(--primary-light);
     }
 
     .timeline-dot.danger {
@@ -267,66 +291,119 @@
     }
 
     .timeline-date {
-      font-size: 0.95rem;
-      font-weight: 700;
+      font-size: 1.15rem;
+      font-weight: 900;
       color: var(--primary);
-      margin-bottom: 4px;
+      margin-bottom: 6px;
     }
 
     .timeline-title {
-      font-size: 1.05rem;
-      font-weight: 700;
-      margin-bottom: 6px;
+      font-size: 1.25rem;
+      font-weight: 800;
+      margin-bottom: 8px;
       color: var(--text-main);
+      line-height: 1.45;
     }
 
     .timeline-body {
-      font-size: 0.95rem;
+      font-size: 1.12rem;
       color: var(--text-muted);
+      line-height: 1.85;
     }
 
     .timeline-body ul {
-      padding-left: 20px;
-      margin-top: 6px;
+      padding-left: 22px;
+      margin-top: 8px;
+    }
+    .timeline-body li {
+      margin-bottom: 8px;
     }
 
-    /* 現場疑點清單 */
+    /* 現場五大疑點清單 */
     .doubt-list {
       display: grid;
-      gap: 14px;
+      gap: 16px;
     }
 
     .doubt-item {
       background: #f8fafc;
       border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 16px 18px;
+      border-radius: 10px;
+      padding: 16px 16px;
+      font-size: 1.12rem;
     }
 
     .doubt-item strong {
       color: #991b1b;
       display: block;
-      margin-bottom: 6px;
-      font-size: 1.05rem;
+      margin-bottom: 8px;
+      font-size: 1.25rem;
+      line-height: 1.4;
     }
 
     /* 需求清單勾選卡片 */
     .req-box {
       background: #ffffff;
-      border: 1px solid #bfdbfe;
-      border-radius: 8px;
-      padding: 18px;
-      margin-bottom: 18px;
+      border: 2px solid #bfdbfe;
+      border-radius: 10px;
+      padding: 20px 16px;
+      margin-bottom: 20px;
     }
 
     .req-header {
-      font-weight: 700;
-      font-size: 1.1rem;
+      font-weight: 900;
+      font-size: 1.3rem;
       color: var(--primary);
-      margin-bottom: 10px;
+      margin-bottom: 12px;
       display: flex;
       align-items: center;
       gap: 6px;
+      line-height: 1.4;
+    }
+
+    .req-box ul {
+      padding-left: 24px;
+      font-size: 1.12rem;
+      color: #1e293b;
+    }
+
+    .req-box li {
+      margin-bottom: 10px;
+      line-height: 1.8;
+    }
+
+    /* 手機直向滿版優化 */
+    @media (max-width: 640px) {
+      body {
+        padding: 12px 10px 90px;
+        font-size: 19px; /* 手機版字體加大更清晰 */
+      }
+      .top-action-bar {
+        grid-template-columns: 1fr; /* 手機版按鈕垂直滿版，手指超好按 */
+        gap: 10px;
+      }
+      .btn {
+        padding: 14px 16px;
+        font-size: 1.2rem;
+      }
+      .header-card {
+        padding: 20px 16px;
+      }
+      .header-title {
+        font-size: 1.65rem;
+      }
+      .header-subtitle {
+        font-size: 1.15rem;
+      }
+      .section-card {
+        padding: 18px 14px;
+      }
+      .section-title {
+        font-size: 1.35rem;
+      }
+      .person-name {
+        font-size: 1.45rem;
+      }
     }
 
     /* 列印友善優化 */
@@ -335,12 +412,13 @@
         background: #ffffff;
         padding: 0;
         color: #000000;
+        font-size: 14pt;
       }
-      .action-bar { display: none; }
+      .top-action-bar { display: none; }
       .header-card {
         background: none;
         color: #000000;
-        border: 1px solid #000;
+        border: 2px solid #000;
         box-shadow: none;
       }
       .badge-top { border: 1px solid #666; color: #000; }
@@ -356,6 +434,12 @@
 
 <div class="container">
 
+  <!-- 🖨️ 頂端快捷功能列 (最優先顯示) -->
+  <div class="top-action-bar">
+    <button class="btn btn-pdf" onclick="window.print()">🖨️ 【存為 PDF】</button>
+    <a href="#need-help" class="btn btn-urgent">🚨 【待社工介入事項】</a>
+  </div>
+
   <!-- 頂部 Header -->
   <div class="header-card">
     <div class="badge-top">個案通報與備忘錄</div>
@@ -364,23 +448,17 @@
       <span class="header-subtitle">已蒐集的線索、時間軸與後續跨專業協同需求清單</span>
     </h1>
     <div class="header-meta">
-      <span>📅 紀錄日期：2026-10-26</span>
-      <span>🏥 收治院所：羅東聖母醫院</span>
-      <span>✍️ 彙整通報人：陳新昱（姪）0987-183-520</span>
+      <div>📅 <strong>紀錄日期</strong>：2026-10-26</div>
+      <div>🏥 <strong>收治院所</strong>：羅東聖母醫院</div>
+      <div>✍️ <strong>彙整通報人</strong>：陳新昱（姪）0987-183-520</div>
     </div>
-  </div>
-
-  <!-- 快捷功能列 -->
-  <div class="action-bar">
-    <button class="btn btn-print" onclick="window.print()">🖨️ 【存為 PDF】</button>
-    <a href="#need-help" class="btn btn-urgent">🚨 【待社工介入事項】</a>
   </div>
 
   <!-- 家屬通報線索 與 尋求社工支援 -->
   <div class="section-card">
     <div class="alert-box alert-warning" style="margin-bottom: 0;">
       <div class="alert-title">📌 家屬通報線索 與 尋求社工支援</div>
-      <p style="margin-bottom: 10px;">
+      <p style="margin-bottom: 12px;">
         1. 家屬以「主動通報客觀情報、尋求社工專業社會支援」為出發點，協助醫護及社工團隊掌握最完整的病況前因後果。
       </p>
       <p>
@@ -399,9 +477,11 @@
           <span class="person-name">陳麗華</span>
           <span class="person-tag tag-icu">加護病房 (ICU)</span>
         </div>
-        <p style="font-size: 0.95rem; margin-bottom: 6px;"><strong>身分：</strong>案主（三姑姑）</p>
-        <p style="font-size: 0.95rem; margin-bottom: 6px;"><strong>主要病況：</strong>本次診斷<strong>嚴重低血鈣（Hypocalcemia）</strong>，曾患甲狀腺癌，似乎有服用標靶藥物，造成身體不舒服或不適應（案主沒有明確提起，只有約略跟家人提到過）。</p>
-        <p style="font-size: 0.95rem; color: #b91c1c;"><strong>心智狀態：</strong>遠期記憶正常，但<strong>近期幾週記憶完全空白</strong>（或許是低血鈣阻斷神經傳導）。</p>
+        <div class="person-body">
+          <p><strong>身分：</strong>案主（三姑姑）</p>
+          <p><strong>主要病況：</strong>本次診斷<strong>嚴重低血鈣（Hypocalcemia）</strong>，曾患甲狀腺癌，似乎有服用標靶藥物，造成身體不舒服或不適應（案主沒有明確提起，只有約略跟家人提到過）。</p>
+          <p style="color: #b91c1c;"><strong>心智狀態：</strong>遠期記憶正常，但<strong>近期幾週記憶完全空白</strong>（或許是低血鈣阻斷神經傳導）。</p>
+        </div>
       </div>
 
       <!-- 吳聰明 -->
@@ -410,10 +490,12 @@
           <span class="person-name">吳聰明</span>
           <span class="person-tag tag-ward">6 樓 21 室</span>
         </div>
-        <p style="font-size: 0.95rem; margin-bottom: 6px;"><strong>身分：</strong>夫（76歲，具榮民身分）</p>
-        <p style="font-size: 0.95rem; margin-bottom: 6px;"><strong>主要病況：</strong>本次確診<strong>嚴重低血鈉</strong>，長期神智不清，會有情緒失控的現象，有尿失禁情形。</p>
-        <p style="font-size: 0.95rem; color: #b45309; margin-bottom: 6px;"><strong>心智狀態：</strong><strong>有被害妄想</strong>（自述被綁架、被綁著不讓走），疑似有攻擊傾向，陳麗華曾經欲言又止的向家人提起過。</p>
-        <p style="font-size: 0.95rem; color: #dc2626;"><strong>⚠️ 跌倒高危：</strong><strong>多次嚴重跌倒爬不起來</strong>，也曾在門口跌倒（其妻在醫院），最後由對面鄰居叫 119 送醫。</p>
+        <div class="person-body">
+          <p><strong>身分：</strong>夫（76歲，具榮民身分）</p>
+          <p><strong>主要病況：</strong>本次確診<strong>嚴重低血鈉</strong>，長期神智不清，會有情緒失控的現象，有尿失禁情形。</p>
+          <p style="color: #b45309;"><strong>心智狀態：</strong><strong>有被害妄想</strong>（自述被綁架、被綁著不讓走），疑似有攻擊傾向，陳麗華曾經欲言又止的向家人提起過。</p>
+          <p style="color: #dc2626; font-weight: 700;"><strong>⚠️ 跌倒高危：</strong><strong>多次嚴重跌倒爬不起來</strong>，也曾在門口跌倒（其妻在醫院），最後由對面鄰居叫 119 送醫。</p>
+        </div>
       </div>
     </div>
   </div>
@@ -499,7 +581,7 @@
       <div class="doubt-item">
         <strong>1. 兩道大門完全敞開：</strong>
         <p>10/23 與警方一起上樓時，外鐵門與內大門均完全大開，大門鑰匙遍尋不著。需釐清 10/21 救護車離去後為何未帶上門。</p>
-        <p style="color: #b91c1c; margin-top: 4px;"><em>若 10/21 是由陳麗華主動將其夫送給 119，則應該會將健保卡也交付 119 才對吧？救護人員是否有索取過吳聰明健保卡？此事尚待與當時 119 救護人員釐清？！</em></p>
+        <p style="color: #b91c1c; margin-top: 6px;"><em>若 10/21 是由陳麗華主動將其夫送給 119，則應該會將健保卡也交付 119 才對吧？救護人員是否有索取過吳聰明健保卡？此事尚待與當時 119 救護人員釐清？！</em></p>
       </div>
 
       <!-- 疑點 2 -->
@@ -522,11 +604,11 @@
 
       <!-- 疑點 5 -->
       <div class="doubt-item" style="border: 2px solid #f87171; background: #fff5f5;">
-        <strong style="color: #991b1b; font-size: 1.1rem;">5. 10/21 兩通 119 報案背景與救護員進出細節（急需社工協助調閱釐清）：</strong>
-        <ul style="padding-left: 20px; font-size: 0.98rem; color: #1e293b; margin-top: 6px;">
-          <li style="margin-bottom: 6px;">
+        <strong style="color: #991b1b; font-size: 1.3rem;">5. 10/21 兩通 119 報案背景與救護員進出細節（急需社工協助調閱釐清）：</strong>
+        <ul style="padding-left: 22px; margin-top: 8px;">
+          <li style="margin-bottom: 10px;">
             <strong>兩通 119 報案電話內容</strong>：希望社工能協助調閱 10 月 21 日 11:00 左右兩通 119 電話，當時報警人分別是誰？鄰居？還是他們夫妻倆？當時兩人是否有吵架或爭執的可能？當時兩人分別致電，是需要兩台救護車還是一台救護車？<br>
-            <span style="color: #b91c1c;"><em>（家屬急切想釐清陳麗華倒臥昏迷的時間點？以及兩人的生活自理能力？）</em></span>
+            <span style="color: #b91c1c; font-weight: 700;"><em>（家屬急切想釐清陳麗華倒臥昏迷的時間點？以及兩人的生活自理能力？）</em></span>
           </li>
           <li>
             <strong>119 救護人員現場詢問</strong>：協助詢問當天 119 的救護人員，1 樓大門是誰協助開門？3 樓大門是誰協助開啟？進入後是否有見到陳麗華本人？為何陳麗華不隨同就醫？當時陳麗華精神狀況如何？救護人員是否有索取過吳聰明健保卡？
@@ -538,7 +620,7 @@
   </div>
 
   <!-- 社工與醫療協同需求 -->
-  <div class="section-card" id="need-help" style="border: 2px solid #dc2626;">
+  <div class="section-card" id="need-help" style="border: 3px solid #dc2626;">
     <div class="section-title" style="color: #991b1b;">🚨 尋求社工與醫療團隊專業協同之支援需求清單</div>
     
     <!-- 需求一 -->
@@ -546,13 +628,13 @@
       <div class="req-header">
         <span>💊 需求一：陳麗華原定 10/27（週二）台北榮總癌症回診與領藥</span>
       </div>
-      <div class="alert-box alert-urgent" style="margin-bottom: 10px;">
+      <div class="alert-box alert-urgent" style="margin-bottom: 12px;">
         <strong>現況說明：</strong>
         陳麗華原定 10/27（週二）台北榮總癌症回診與領藥（不確定是否仍標靶治療中），<strong>目前客觀上完全無法親自北上回診</strong>。
       </div>
-      <ul style="padding-left: 20px; font-size: 0.98rem; color: #1e293b;">
-        <li style="margin-bottom: 6px;"><strong>查閱健保雲端藥歷：</strong>懇請主治醫師協助調閱北榮標靶藥物名稱、劑量與看診紀錄，評估本次急性低血鈣是否與標靶藥物相關。</li>
-        <li style="margin-bottom: 6px;"><strong>暫時無法回北榮，聖母醫院應協助銜接處置。</strong></li>
+      <ul>
+        <li><strong>查閱健保雲端藥歷：</strong>懇請主治醫師協助調閱北榮標靶藥物名稱、劑量與看診紀錄，評估本次急性低血鈣是否與標靶藥物相關。</li>
+        <li><strong>暫時無法回北榮，聖母醫院應協助銜接處置。</strong></li>
         <li><strong>跨院照會協處：</strong>若需北榮完整病程摘要，懇請社工室協助以院際醫療照會管道調閱資料。</li>
       </ul>
     </div>
@@ -568,12 +650,12 @@
       </div>
       
       <div class="alert-box alert-urgent" style="margin-bottom: 12px;">
-        <strong>長輩出院安置核心訴求：</strong>
-        <p><strong>希望社工能協助將吳聰明安置於退輔會榮民安養就養體系之類的社福機構，以利陳麗華出院後的休養恢復。陳麗華目前已經自顧不暇，若將照顧吳聰明的責任再丟給她，恐本次事件將會很快又重演！</strong></p>
+        <strong style="font-size: 1.25rem;">長輩出院安置核心訴求：</strong>
+        <p style="margin-top: 6px;"><strong>希望社工能協助將吳聰明安置於退輔會榮民安養就養體系之類的社福機構，以利陳麗華出院後的休養恢復。陳麗華目前已經自顧不暇，若將照顧吳聰明的責任再丟給她，恐本次事件將會很快又重演！</strong></p>
       </div>
 
-      <ul style="padding-left: 20px; font-size: 0.98rem; color: #1e293b;">
-        <li style="margin-bottom: 8px;"><strong>智慧防跌與緊急救援設備申請：</strong>請社工室協助對接衛福部 62.5 億「高齡獨居及雙老家庭安全守護專案」，評估申請「自動重力跌倒感應、SOS 一鍵求救、GPS 定位之智慧手環」及居家 24 小時緊急救援連線。</li>
+      <ul>
+        <li><strong>智慧防跌與緊急救援設備申請：</strong>請社工室協助對接衛福部 62.5 億「高齡獨居及雙老家庭安全守護專案」，評估申請「自動重力跌倒感應、SOS 一鍵求救、GPS 定位之智慧手環」及居家 24 小時緊急救援連線。</li>
         <li><strong>並且協助陳麗華申請長照 2.0 居家之服務。</strong></li>
       </ul>
     </div>
@@ -583,12 +665,12 @@
       <div class="req-header">
         <span>🔍 需求三：協助調閱 10/21 兩通 119 報案紀錄與詢問出勤救護員</span>
       </div>
-      <div class="alert-box alert-info" style="margin-bottom: 10px; background-color: #f0fdf4; border-left: 4px solid #16a34a; color: #14532d;">
+      <div class="alert-box alert-info" style="margin-bottom: 12px;">
         <strong>協查目的：</strong>
         釐清陳麗華倒臥昏迷的時間點，判斷兩位長輩當時的生活自理能力，提供醫師、社工評估出院安置與保護之客觀事實依據。
       </div>
-      <ul style="padding-left: 20px; font-size: 0.98rem; color: #1e293b;">
-        <li style="margin-bottom: 8px;">
+      <ul>
+        <li>
           <strong>調閱 10/21 11:00 左右兩通 119 電話通聯紀錄：</strong>
           懇請社工協助以個案醫療或社會工作專業管道，向消防局釐清：報案人分別是誰（鄰居或夫妻倆）？通話背景是否有吵架或爭執可能？兩人分別致電是叫一台還兩台救護車？
         </li>
