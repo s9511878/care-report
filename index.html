@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>陳麗華女士與吳聰明先生意外住院事件－個案線索、時間軸與協同需求</title>
+  <!-- 防快取設定 -->
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #1e3a8a;
+      --primary-light: #3b82f6;
+      --accent: #dc2626;
+      --accent-bg: #fef2f2;
+      --warning: #d97706;
+      --warning-bg: #fffbeb;
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --text-main: #0f172a;
+      --text-muted: #475569;
+      --border: #e2e8f0;
+      --radius: 10px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Noto Sans TC', 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: var(--bg);
+      color: var(--text-main);
+      line-height: 1.7;
+      padding: 24px 16px 80px;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    /* 頂部 Header */
+    .header-card {
+      background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
+      color: #ffffff;
+      padding: 28px 24px;
+      border-radius: var(--radius);
+      box-shadow: 0 10px 25px -5px rgba(30, 58, 138, 0.25);
+      margin-bottom: 24px;
+    }
+
+    .badge-top {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(4px);
+      padding: 4px 12px;
+      border-radius: 9999px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      margin-bottom: 12px;
+      letter-spacing: 0.5px;
+    }
+
+    .header-title {
+      font-size: 1.65rem;
+      font-weight: 700;
+      line-height: 1.35;
+      margin-bottom: 12px;
+    }
+
+    .header-meta {
+      font-size: 0.92rem;
+      opacity: 0.9;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    /* 快捷功能列 */
+    .action-bar {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 10px 18px;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      text-decoration: none;
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .btn-print {
+      background: #ffffff;
+      color: var(--primary);
+      border-color: var(--border);
+    }
+    .btn-print:hover {
+      background: #f1f5f9;
+    }
+
+    .btn-urgent {
+      background: var(--accent);
+      color: #ffffff;
+    }
+
+    /* 通用卡片容器 */
+    .section-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+      margin-bottom: 24px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+    }
+
+    .section-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      border-bottom: 2px solid #eff6ff;
+      padding-bottom: 8px;
+    }
+
+    /* 重點提報 Alert */
+    .alert-box {
+      padding: 16px 20px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      font-size: 0.98rem;
+    }
+
+    .alert-urgent {
+      background-color: var(--accent-bg);
+      border-left: 4px solid var(--accent);
+      color: #991b1b;
+    }
+
+    .alert-warning {
+      background-color: var(--warning-bg);
+      border-left: 4px solid var(--warning);
+      color: #92400e;
+    }
+
+    .alert-title {
+      font-weight: 700;
+      margin-bottom: 6px;
+      font-size: 1.05rem;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* 人物現況 Grid */
+    .people-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
+      margin-bottom: 12px;
+    }
+
+    .person-card {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px;
+      background: #fdfdfd;
+    }
+
+    .person-card.active-case {
+      border-color: #bfdbfe;
+      background: #f0f7ff;
+    }
+
+    .person-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+
+    .person-name {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    .person-tag {
+      font-size: 0.8rem;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-weight: 600;
+    }
+    .tag-icu { background: #fee2e2; color: #b91c1c; }
+    .tag-ward { background: #fef3c7; color: #b45309; }
+    .tag-contact { background: #e2e8f0; color: #334155; }
+
+    /* 時間軸 (Timeline) */
+    .timeline {
+      position: relative;
+      padding-left: 28px;
+      margin: 20px 0;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 10px;
+      top: 6px;
+      bottom: 6px;
+      width: 2px;
+      background: #cbd5e1;
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 24px;
+    }
+
+    .timeline-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .timeline-dot {
+      position: absolute;
+      left: -28px;
+      top: 5px;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: #ffffff;
+      border: 3px solid var(--primary-light);
+    }
+
+    .timeline-dot.danger {
+      border-color: var(--accent);
+    }
+
+    .timeline-date {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 4px;
+    }
+
+    .timeline-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+      color: var(--text-main);
+    }
+
+    .timeline-body {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+    }
+
+    .timeline-body ul {
+      padding-left: 20px;
+      margin-top: 6px;
+    }
+
+    /* 現場疑點清單 */
+    .doubt-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .doubt-item {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 14px 16px;
+    }
+
+    .doubt-item strong {
+      color: #991b1b;
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    /* 需求清單勾選卡片 */
+    .req-box {
+      background: #ffffff;
+      border: 1px solid #bfdbfe;
+      border-radius: 8px;
+      padding: 16px;
+      margin-bottom: 16px;
+    }
+
+    .req-header {
+      font-weight: 700;
+      font-size: 1.05rem;
+      color: var(--primary);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* 頁尾聯絡資訊 */
+    .contact-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+
+    .contact-table th, .contact-table td {
+      border: 1px solid var(--border);
+      padding: 10px 14px;
+      font-size: 0.92rem;
+      text-align: left;
+    }
+
+    .contact-table th {
+      background: #f1f5f9;
+      font-weight: 600;
+      width: 32%;
+    }
+
+    /* 列印友善優化 */
+    @media print {
+      body {
+        background: #ffffff;
+        padding: 0;
+        color: #000000;
+      }
+      .action-bar { display: none; }
+      .header-card {
+        background: none;
+        color: #000000;
+        border: 1px solid #000;
+        box-shadow: none;
+      }
+      .badge-top { border: 1px solid #666; color: #000; }
+      .section-card {
+        box-shadow: none;
+        border: 1px solid #ccc;
+        page-break-inside: avoid;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- 頂部卡片 -->
+  <div class="header-card">
+    <div class="badge-top">個案通報・家庭照護情報備忘錄</div>
+    <h1 class="header-title">陳麗華女士與吳聰明先生意外住院事件<br><span style="font-size: 1.15rem; font-weight: 400; opacity: 0.95;">完整線索、現場客觀時間軸與後續跨專業協同需求清單</span></h1>
+    <div class="header-meta">
+      <span>📅 紀錄日期：2026-10-26</span>
+      <span>🏥 收治院所：羅東聖母醫院</span>
+      <span>✍️ 彙整通報人：陳新昱（姪）與家屬照護應變團隊</span>
+    </div>
+  </div>
+
+  <!-- 快捷功能 -->
+  <div class="action-bar">
+    <button class="btn btn-print" onclick="window.print()">🖨️ 列印此頁／存為 PDF 夾存</button>
+    <a href="#need-help" class="btn btn-urgent">🚨 直接查看【向社工與醫療團隊之協同清單】</a>
+  </div>
+
+  <!-- 溝通方針 -->
+  <div class="section-card">
+    <div class="section-title">💡 與醫護／社工溝通之核心立場與原則</div>
+    <div class="alert-box alert-warning">
+      <div class="alert-title">📌 家屬主動通報客觀情報，尋求專業協同支援</div>
+      <p>1. <strong>不預設立場、不爭論「誰來做」</strong>：家屬以「主動通報客觀情報、尋求專業協同支援」為出發點，協助醫護及社工團隊掌握最完整的病況前因後果。</p>
+      <p>2. <strong>主動提醒 10/27 台北榮總回診與標靶藥情資</strong>：協助主治醫師調閱雲端病歷與用藥紀錄，評估週二無法親自回診時之醫療與用藥銜接方案。</p>
+      <p>3. <strong>主動通報長輩多次跌倒病史</strong>：提供吳聰明曾多次跌倒卡門口爬不起之客觀事實，請社工專業評估對接衛福部 62.5 億專案（防跌手環／緊急救援系統）與出院安置資源。</p>
+    </div>
+  </div>
+
+  <!-- 人物現況對照 -->
+  <div class="section-card">
+    <div class="section-title">👥 人物與現況對照表</div>
+    <div class="people-grid">
+      <!-- 案主 陳麗華 -->
+      <div class="person-card active-case">
+        <div class="person-header">
+          <span class="person-name">陳麗華</span>
+          <span class="person-tag tag-icu">加護病房 (ICU)</span>
+        </div>
+        <p style="font-size: 0.9rem; color: #475569; margin-bottom: 6px;"><strong>身分：</strong>案主（三姑姑）</p>
+        <p style="font-size: 0.92rem; margin-bottom: 6px;"><strong>主要病況：</strong>本次診斷<strong>嚴重低血鈣（Hypocalcemia）</strong>，曾患甲狀腺癌（全摘除），近半年服用標靶藥物。</p>
+        <p style="font-size: 0.92rem; color: #b91c1c;"><strong>心智狀態：</strong>遠期記憶正常，但<strong>近期 2～3 週記憶完全空白</strong>（因低血鈣阻斷神經傳導）。</p>
+      </div>
+
+      <!-- 案主 吳聰明 -->
+      <div class="person-card active-case">
+        <div class="person-header">
+          <span class="person-name">吳聰明</span>
+          <span class="person-tag tag-ward">6 樓 21 室</span>
+        </div>
+        <p style="font-size: 0.9rem; color: #475569; margin-bottom: 6px;"><strong>身分：</strong>夫（三姑丈，76歲，具榮民身分）</p>
+        <p style="font-size: 0.92rem; margin-bottom: 6px;"><strong>主要病況：</strong>本次確診<strong>嚴重低血鈉</strong>，神智不清，長期有尿失禁情形。</p>
+        <p style="font-size: 0.92rem; color: #b45309;"><strong>心智狀態：</strong><strong>重度被害妄想</strong>（自述被綁架、用繩子綁著不讓走），有動手攻擊傾向。</p>
+        <p style="font-size: 0.92rem; color: #dc2626; margin-top: 4px;"><strong>⚠️ 跌倒高危：</strong><strong>多次嚴重跌倒爬不起來</strong>，曾卡在門口由對面鄰居叫 119 送醫。</p>
+      </div>
+    </div>
+
+    <div style="font-size: 0.9rem; color: #64748b; margin-top: 8px;">
+      <strong>主要應變家屬：</strong>陳新昱（姪，0987-xxx-xxx，外部整合協調）、陳淑鳳（妹，現場長輩代表）、陳宏瑋（弟）、林芳瑞（妹夫）、林建宇（表姪）。
+    </div>
+  </div>
+
+  <!-- 時間軸 -->
+  <div class="section-card">
+    <div class="section-title">⏱️ 事件完整時間軸（2026 年 10 月）</div>
+    <div class="timeline">
+
+      <!-- 歷史病史 -->
+      <div class="timeline-item">
+        <div class="timeline-dot danger"></div>
+        <div class="timeline-date">【既往重大前案】印證雙老完全失能</div>
+        <div class="timeline-title">吳聰明多次跌倒卡死門口，仰賴鄰居代叫 119 送醫</div>
+        <div class="timeline-body">
+          吳聰明已有多次嚴重跌倒無法自行爬起之紀錄。曾有一次跌倒卡死在住家大門口動彈不得，當時陳麗華亦在醫院就診，兩人同住但<strong>實質完全失去互助自理能力</strong>，最後全靠對面鄰居發現代叫救護車才獲救。
+        </div>
+      </div>
+
+      <!-- 10/19-10/20 -->
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-date">10 月 19 日（一）～ 10 月 20 日（二）</div>
+        <div class="timeline-title">異狀初現：活動無故缺席、電話失聯</div>
+        <div class="timeline-body">
+          陳麗華平時生活極其規律，每週固定參加「羅力球」運動，若有事必定請假。此次連續兩天未到課且未請假，球友、老師及弟妹多次致電家中與手機均無人接聽，引起家屬高度警覺。
+        </div>
+      </div>
+
+      <!-- 10/21 -->
+      <div class="timeline-item">
+        <div class="timeline-dot danger"></div>
+        <div class="timeline-date">10 月 21 日（三）</div>
+        <div class="timeline-title">市話兩通 119 報案，吳聰明單獨一人送急診</div>
+        <div class="timeline-body">
+          <ul>
+            <li><strong>11:00 左右</strong>：住家市話撥出兩通 119（第一通為男聲，隔 3 分鐘第二通為女聲）。陳麗華手機內無通話紀錄。</li>
+            <li><strong>11:59</strong>：吳聰明由救護車<strong>單獨一人送抵聖母醫院急診</strong>，身上無身分證、無健保卡、無家屬陪同。換下的褲子有濃烈尿味。</li>
+            <li><strong>晚間</strong>：吳聰明確診<strong>嚴重低血鈉</strong>，收治 6 樓 21 室病房，由院方安排專責看護楊芳如照料。</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 10/23 -->
+      <div class="timeline-item">
+        <div class="timeline-dot danger"></div>
+        <div class="timeline-date">10 月 23 日（五）</div>
+        <div class="timeline-title">家屬尋獲吳聰明、報警破門搜救，尋獲倒臥浴室之陳麗華</div>
+        <div class="timeline-body">
+          <ul>
+            <li><strong>15:00</strong>：家屬至聖母醫院查得吳聰明已住院，但身邊不見陳麗華。因陳麗華失聯已超過 48 小時，立即報警協尋。</li>
+            <li><strong>16:00</strong>：會同員警返回住處，發現<strong>內外大門完全敞開</strong>，走廊充滿尿味；屋內電風扇持續運轉，浴室門反鎖。</li>
+            <li><strong>破門發現</strong>：陳麗華倒臥於浴室地板多日，僅著內衣褲，嚴重失禁虛弱，一手向上懸空；所幸意識尚能認出妹妹。</li>
+            <li><strong>20:00</strong>：陳麗華經急診搶救確診<strong>嚴重低血鈣</strong>，轉收治加護病房（ICU）。起出兩人身分證與健保卡交由院方建檔。</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 10/24 -->
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-date">10 月 24 日（六）</div>
+        <div class="timeline-title">加護病房探視、更換新門鎖、吳聰明出現被害妄想</div>
+        <div class="timeline-body">
+          <ul>
+            <li><strong>11:00</strong>：探視陳麗華，確認近 2～3 週記憶完全中斷斷片。</li>
+            <li><strong>15:00</strong>：在員警、里長及鎖匠見證下，依法破壞舊鎖更換新鎖，確保住家安全。</li>
+            <li><strong>晚間</strong>：探視吳聰明，其呈現嚴重被害妄想，自述「被綁架、用繩子綁住」，認知功能嚴重異常。</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 關鍵現場疑點 -->
+  <div class="section-card">
+    <div class="section-title">🔍 現場四大重大疑點</div>
+    <div class="doubt-list">
+      <div class="doubt-item">
+        <strong>1. 兩道大門完全敞開：</strong>
+        10/23 破門時，外鐵門與內大門均完全大開，大門鑰匙遍尋不著。需釐清 10/21 救護車離去後為何未帶上門。
+      </div>
+      <div class="doubt-item">
+        <strong>2. 走廊濃烈尿味多日：</strong>
+        對門鄰居證實尿臭味已瀰漫多日，顯示長輩生活自理與衛生機能早已崩解。
+      </div>
+      <div class="doubt-item">
+        <strong>3. 電器持續運轉、衣物散落門口：</strong>
+        客廳兩台風扇運轉多日，浴室門口散落多件脫下衣物。
+      </div>
+      <div class="doubt-item">
+        <strong>4. 浴室反鎖與倒臥姿勢：</strong>
+        陳麗華反鎖於浴室內倒臥多日，一手懸空，推測發病極為突然且無法對外求援。
+      </div>
+    </div>
+  </div>
+
+  <!-- 社工與醫療協同需求 -->
+  <div class="section-card" id="need-help" style="border: 2px solid #3b82f6;">
+    <div class="section-title" style="color: #1e40af;">🚨 尋求社工與醫療團隊專業協同之支援需求清單</div>
+    
+    <!-- 需求一 -->
+    <div class="req-box">
+      <div class="req-header">
+        <span>💊 需求一：10/27（週二）台北榮總癌症回診與標靶藥用藥諮詢</span>
+      </div>
+      <div class="alert-box alert-urgent" style="margin-bottom: 10px;">
+        <strong>現況急迫性：</strong>
+        陳麗華原訂 <strong>10/27（週二）上午在台北榮總腫瘤科回診</strong>，持續服用甲狀腺癌標靶藥。目前人在加護病房，<strong>客觀上完全無法親自北上回診</strong>。
+      </div>
+      <ul style="padding-left: 20px; font-size: 0.95rem; color: #334155;">
+        <li><strong>查閱健保雲端藥歷：</strong>懇請主治醫師協助調閱北榮標靶藥物名稱、劑量與看診紀錄，評估本次急性低血鈣是否與標靶藥物相關。</li>
+        <li><strong>在院替代用藥方案：</strong>若暫時無法回北榮，聖母醫院是否可在加護病房期間銜接處置？</li>
+        <li><strong>跨院照會協處：</strong>若需北榮完整病程摘要，懇請社工室協助以院際醫療照會管道調閱資料。</li>
+      </ul>
+    </div>
+
+    <!-- 需求二 -->
+    <div class="req-box">
+      <div class="req-header">
+        <span>🛡️ 需求二：居家安全防跌手環與長照守護資源對接（衛福部 62.5 億專案）</span>
+      </div>
+      <div class="alert-box alert-warning" style="margin-bottom: 10px;">
+        <strong>背景事實：</strong>
+        吳聰明已有<strong>多次嚴重跌倒爬不起</strong>紀錄（曾跌倒卡門口由鄰居叫 119 送醫）；陳麗華亦因低血鈣倒臥多日，證實雙老生活自理與互助能力已完全瓦解。
+      </div>
+      <ul style="padding-left: 20px; font-size: 0.95rem; color: #334155;">
+        <li><strong>智慧防跌與緊急救援設備申請：</strong>請社工室協助對接衛福部 62.5 億「高齡獨居及雙老家庭安全守護專案」或宜蘭長照輔具，評估申請<strong>「自動重力跌倒感應、SOS 一鍵求救、GPS 定位之智慧手環」</strong>及<strong>居家 24 小時緊急救援連線</strong>。</li>
+        <li><strong>出院準備與安置分流：</strong>評估兩位長輩出院後的照護可行性，對接<strong>退輔會榮民安養就養體系</strong>或長照 2.0 居家服務。</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 聯絡窗口 -->
+  <div class="section-card">
+    <div class="section-title">📞 重要單位與聯絡管道</div>
+    <table class="contact-table">
+      <tr>
+        <th>羅東聖母醫院</th>
+        <td>加護病房（探病/病況諮詢）<br>6 樓 21 室一般病房護理站<br>醫務社工室（週二 08:30 上班）</td>
+      </tr>
+      <tr>
+        <th>宜蘭縣榮民服務處</th>
+        <td>責任區輔導員 / 榮民急難救助專線</td>
+      </tr>
+      <tr>
+        <th>證件保管狀態</th>
+        <td>兩位長輩身分證、健保卡正本由家屬專人統一保管，備供院方查驗。</td>
+      </tr>
+      <tr>
+        <th>家屬聯絡窗口</th>
+        <td>陳新昱（姪）：0987-xxx-xxx（外部整合協調）<br>陳淑鳳（妹）：現場家屬代表</td>
+      </tr>
+    </table>
+  </div>
+
+</div>
+
+</body>
+</html>
