@@ -154,11 +154,12 @@
       opacity: 0.98;
       display: flex;
       flex-direction: column;
-      gap: 6px;
+      gap: 8px;
       margin-top: 14px;
-      background: rgba(0, 0, 0, 0.15);
-      padding: 12px 14px;
+      background: rgba(0, 0, 0, 0.18);
+      padding: 14px 16px;
       border-radius: 8px;
+      line-height: 1.7;
     }
 
     /* 通用區塊卡片 */
@@ -574,7 +575,11 @@
     <div class="header-meta">
       <div>📅 <strong>紀錄日期</strong>：2026-10-26</div>
       <div>🏥 <strong>收治院所</strong>：羅東聖母醫院</div>
-      <div>✍️ <strong>彙整通報人</strong>：陳新昱（姪）0987-183-520 與家屬照護應變團隊</div>
+      <div>
+        👥 <strong>家屬聯絡窗口</strong>：<br>
+        • <strong>陳淑鳳（妹）</strong>：宜蘭在地就近親屬聯絡人、現場實務照應協調<br>
+        • <strong>陳新昱（姪，住新北）0987-183-520</strong>：醫療病情討論、長照與社工資源對接、重大照護安置決策
+      </div>
     </div>
   </div>
 
@@ -583,7 +588,7 @@
     <div class="alert-box alert-success" style="margin-bottom: 14px;">
       <div class="alert-title">✅ 最新醫療處置進度更新</div>
       <p>
-        <strong>陳麗華癌症標靶用藥銜接</strong>：原訂 10/27（週二）台北榮總腫瘤科回診，<strong>聖母醫院加護病房（ICU）主治醫師已主動調閱健保雲端用藥歷程，並接續在院給藥處置</strong>，此項醫療銜接已步入常軌。
+        <strong>陳麗華癌症標靶用藥銜接</strong>：原訂 10/27（週二）台北榮總腫瘤科回診，<strong>聖母醫院加護病房（ICU）主治醫師已主動調閱健保雲端用藥歷程，並接續在院給藥處置</strong>，此項醫療處置已步入常軌。
       </p>
     </div>
 
@@ -593,10 +598,10 @@
         1. <strong>家屬核心立場</strong>：家屬以「主動通報客觀情報、尋求社工專業社會支援」為出發點，協助醫護及社工團隊掌握最完整的病況前因後果與長輩失能現況。
       </p>
       <p style="margin-bottom: 10px;">
-        2. <strong>戶籍資料代查懇請</strong>：因現場家屬（妹妹陳淑鳳等人）年事已高，<strong>懇請社工室評估以醫療社工之個案公務管道直接調閱陳麗華之全戶戶籍謄本</strong>，免除年長家屬舟車奔波。
+        2. <strong>戶籍謄本公務代查懇請</strong>：因現場家屬（陳淑鳳等）年事已高，<strong>懇請社工室以個案服務之公務管道直接向戶政機關調閱陳麗華全戶戶籍謄本</strong>，免除年長家屬舟車奔波。
       </p>
       <p>
-        3. <strong>長輩出院安全安置（核心痛點）</strong>：提供吳聰明曾多次跌倒卡死門口之客觀病史。陳麗華本次亦因低血鈣倒臥多日，出院後極其虛弱自顧不暇，<strong>若將照顧責任再交由妻子，恐本次慘劇將會很快重演！強烈懇請社工協助將吳聰明妥善轉介安置於退輔會榮民安養或相關能支援照護之收容機構。</strong>
+        3. <strong>長輩出院安全安置（核心痛點）</strong>：吳聰明曾有多次跌倒爬不起之客觀病史。陳麗華本次亦因重症倒臥多日，出院後極其虛弱自顧不暇，<strong>若出院後將照顧責任再交由妻子，恐本次事件將會很快重演！強烈懇請社工協助將吳聰明妥善轉介安置於退輔會榮民安養、失智養護專區或相關照護收容機構。</strong>
       </p>
     </div>
   </div>
@@ -613,8 +618,8 @@
         </div>
         <div class="person-body">
           <p><strong>身分：</strong>案主（三姑姑）</p>
-          <p><strong>主要病況：</strong>本次診斷<strong>嚴重低血鈣（Hypocalcemia）</strong>，曾患甲狀腺癌，近半年服用標靶藥物（已由 ICU 醫師接續調閱處置）。</p>
-          <p style="color: #b91c1c;"><strong>心智狀態：</strong>遠期記憶正常，但<strong>近期幾週記憶完全空白</strong>（因低血鈣阻斷神經傳導）。</p>
+          <p><strong>主要病況：</strong>本次診斷<strong>嚴重低血鈣</strong>，曾患甲狀腺癌，近半年服用標靶藥物（已由 ICU 醫師接續調閱處置）。</p>
+          <p style="color: #b91c1c;"><strong>心智狀態：</strong>遠期記憶正常，但<strong>近期幾週記憶完全空白</strong>（<strong>疑似</strong>因低血鈣阻斷神經傳導所致）。</p>
         </div>
       </div>
 
@@ -627,8 +632,8 @@
         <div class="person-body">
           <p><strong>身分：</strong>夫（76歲，具榮民身分）</p>
           <p><strong>主要病況：</strong>本次確診<strong>嚴重低血鈉</strong>，長期神智不清、言語含糊，有尿失禁情形。</p>
-          <p style="color: #b45309;"><strong>心智狀態：</strong>受低血鈉影響出現嚴重時空認知混亂，<strong>有被害妄想</strong>（自述被綁架、被綁著不讓走）。<br><span style="font-size: 1rem; color: #64748b;"><em>（註：並無攻擊痕跡或造成具體傷害，屬長輩神智不清之混亂言行）</em></span></p>
-          <p style="color: #dc2626; font-weight: 700;"><strong>⚠️ 跌倒高危：</strong><strong>多次嚴重跌倒爬不起來</strong>，也曾在門口跌倒（其妻在醫院），最後由對面鄰居叫 119 送醫。</p>
+          <p style="color: #b45309;"><strong>心智狀態：</strong>受低血鈉影響出現嚴重時空認知混亂，<strong>有被害妄想</strong>（自述被綁架、被綁著不讓走）。<br><span style="font-size: 1rem; color: #64748b;"><em>（註：並無攻擊痕跡或造成具體傷害，屬長輩神智不清之混亂言行，符合榮家失智養護收案範疇）</em></span></p>
+          <p style="color: #dc2626; font-weight: 700;"><strong>⚠️ 跌倒高危：</strong>有多次嚴重跌倒爬不起來之客觀病史（曾於門口跌倒由對面鄰居叫 119 送醫）。</p>
         </div>
       </div>
     </div>
@@ -645,7 +650,7 @@
         <div class="timeline-date">【既往重大前案】印證雙老完全失能</div>
         <div class="timeline-title">吳聰明多次跌倒爬不起來，曾於門口跌倒由對面鄰居叫 119 送醫</div>
         <div class="timeline-body">
-          吳聰明已有多次嚴重跌倒無法自行爬起之既往紀錄。曾有一次跌倒直接卡死在住家門口動彈不得，當時陳麗華亦在醫院（住院/就醫），兩人雖名為同住，但「完全無法作為彼此的生活照護支援」。最後係完全仰賴對面鄰居發現並代叫 119 救護車才得以送醫獲救。
+          吳聰明已有多次嚴重跌倒無法自行爬起之既往紀錄。曾有一次跌倒直接卡在住家門口動彈不得，當時陳麗華亦在醫院（住院/就醫），兩人雖名為同住，但「完全無法作為彼此的生活照護支援」。最後係完全仰賴對面鄰居發現並代叫 119 救護車才得以送醫獲救。
         </div>
       </div>
 
@@ -738,14 +743,14 @@
 
       <!-- 疑點 5 -->
       <div class="doubt-item" style="border: 2px solid #f87171; background: #fff5f5;">
-        <strong style="color: #991b1b; font-size: 1.3rem;">5. 10/21 兩通 119 報案背景與救護員進出細節（急需社工協助調閱釐清）：</strong>
+        <strong style="color: #991b1b; font-size: 1.3rem;">5. 10/21 兩通 119 報案背景與救護員進出細節（急需釐清自理能力與昏迷時間點）：</strong>
         <ul style="padding-left: 22px; margin-top: 8px;">
           <li style="margin-bottom: 10px;">
             <strong>兩通 119 報案電話內容</strong>：希望社工能協助調閱 10 月 21 日 11:00 左右兩通 119 電話，當時報警人分別是誰？鄰居？還是他們夫妻倆？當時兩人是否有爭執或求救？當時兩人分別致電，是需要兩台救護車還是一台救護車？<br>
             <span style="color: #b91c1c; font-weight: 700;"><em>（家屬急切想釐清陳麗華倒臥昏迷的時間點？以及兩人的生活自理能力？）</em></span>
           </li>
           <li>
-            <strong>119 救護人員現場詢問</strong>：協助詢問當天 119 的救護人員，1 樓大門是誰協助開門？3 樓大門是誰協助開啟？進入後是否有見到陳麗華本人？為何陳麗華不隨同就醫？當時陳麗華精神狀況如何？救護人員是否有索取過吳聰明健保卡？
+            <strong>119 救護人員現場詢問</strong>：協助詢問當天 119 的救護人員，1 樓大門是誰協助開門？3 樓大門是誰協助開啟？進入後是否有見到陳麗華本人？為何陳麗華不隨同就醫？當時陳麗華精神狀況如何？救護人員現場是否有索取過吳聰明健保卡？救護車離開時為何大門敞開未帶上？
           </li>
         </ul>
       </div>
@@ -760,32 +765,41 @@
     <!-- 需求一 -->
     <div class="req-box">
       <div class="req-header">
-        <span>🛡️ 需求一：居家安全防跌手環與長照守護資源對接（衛福部 62.5 億專案）</span>
+        <span>🛡️ 需求一：居家安全防跌、長照守護與巴氏量表（外勞申請）評估</span>
       </div>
       <div class="alert-box alert-warning" style="margin-bottom: 12px;">
         <strong>背景事實：</strong>
-        吳聰明已有多次嚴重跌倒爬不起紀錄（曾跌倒卡門口由鄰居叫 119 送醫）；陳麗華亦因低血鈣倒臥多日，證實雙老生活自理與互助能力已完全瓦解。
+        吳聰明已有多次嚴重跌倒爬不起紀錄（曾跌倒卡門口由鄰居叫 119 送醫）；陳麗華亦因急性低血鈣倒臥多日，證實雙老生活自理與互助能力已完全瓦解。
       </div>
       
       <div class="alert-box alert-urgent" style="margin-bottom: 12px;">
         <strong style="font-size: 1.25rem;">長輩出院安置核心訴求：</strong>
-        <p style="margin-top: 6px;"><strong>希望社工能協助將吳聰明安置於退輔會榮民安養就養體系之類的社福機構，以利陳麗華出院後的休養恢復。陳麗華目前已經自顧不暇，若將照顧吳聰明的責任再丟給她，恐本次事件將會很快又重演！</strong></p>
+        <p style="margin-top: 6px;"><strong>希望社工能協助將吳聰明安置於退輔會榮民安養就養體系（養護堂／失智專區）或長照機構，以利陳麗華出院後的休養恢復。陳麗華目前已經自顧不暇，若將照顧責任再交給她，恐本次事件將會很快重演！</strong></p>
       </div>
 
       <ul>
-        <li><strong>智慧防跌與緊急救援設備申請：</strong>請社工室協助對接衛福部 62.5 億「高齡獨居及雙老家庭安全守護專案」，評估申請「自動重力跌倒感應、SOS 一鍵求救、GPS 定位之智慧手環」及居家 24 小時緊急救援連線。</li>
-        <li><strong>長照 2.0 居家服務申請：</strong>協助陳麗華申請長照 2.0 居家之服務。</li>
+        <li style="margin-bottom: 10px;">
+          <strong>巴氏量表評估與外籍家庭看護工（外勞）申請評估</strong>：<br>
+          趁本次兩位長輩均在院治療期間，懇請社工室協調醫療團隊<strong>針對吳聰明與陳麗華進行巴氏量表評估（開立病症暨失能診斷書）</strong>，以及早啟動後續聘僱外籍家庭看護工之申請程序，防範出院無人看照之真空期。
+        </li>
+        <li style="margin-bottom: 10px;">
+          <strong>智慧防跌手環與緊急救援系統</strong>：<br>
+          請社工室協助對接衛福部 62.5 億「高齡獨居及雙老家庭安全守護專案」，評估申請「自動重力跌倒感應、SOS 一鍵求救、GPS 定位之智慧手環」及居家 24 小時緊急救援連線。
+        </li>
+        <li>
+          <strong>長照 2.0 居家照護服務</strong>：協助陳麗華申請長照 2.0 居家服務。
+        </li>
       </ul>
     </div>
 
     <!-- 需求二 -->
     <div class="req-box">
       <div class="req-header">
-        <span>🔍 需求二：協助調閱 10/21 兩通 119 報案紀錄與詢問出勤救護員</span>
+        <span>🔍 需求二：10/21 119 報案紀錄與救護員關鍵疑點釐清</span>
       </div>
       <div class="alert-box alert-info" style="margin-bottom: 12px;">
-        <strong>協查目的：</strong>
-        釐清陳麗華倒臥昏迷的時間點，判斷兩位長輩當時的生活自理能力，提供醫師、社工評估出院安置與保護之客觀事實依據。
+        <strong>說明與協查目的：</strong>
+        家屬已備妥正式授權委託書，刻正向宜蘭縣政府消防局申辦「10/21 吳聰明救護紀錄表影本與出勤備忘」。若社工端具備公務查調管道，亦懇請惠予向消防體系調閱相關通聯紀錄，以釐清陳麗華倒臥昏迷的時間點，判斷兩位長輩當時的生活自理能力，提供醫師、社工評估出院安置與保護之客觀事實依據。
       </div>
       <ul>
         <li>
